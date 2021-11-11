@@ -4,7 +4,7 @@ import { Hangman } from './Hangman';
 describe('Tests for Hangman', () => {
     let game;
     let game2;
-    beforeAll(() => {
+    beforeEach(() => {
         game = new Hangman('test', 4);
         game2 = new Hangman('truck', 2);
     });
@@ -47,7 +47,9 @@ describe('Tests for Hangman', () => {
             expect(game.makeGuess('e')).toBe(true);
             expect(game.guessedLetters).toEqual(expect.arrayContaining(['e']));
             expect(game.makeGuess('a')).toBe(false);
+            expect(game.guessedLetters).toEqual(expect.arrayContaining(['e', 'a']));
             expect(game.makeGuess('e')).toBe(false);
+            expect(game.guessedLetters).toStrictEqual(['e', 'a']);
         });
     });
 });
