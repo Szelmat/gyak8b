@@ -62,6 +62,10 @@ describe('Tests for Hangman', () => {
     describe('test for calculeStatus()', () => {
         test('calculating status for game', () => {
             expect(game.calculateStatus()).toBe(true);
+            game.makeGuess('t');
+            game.makeGuess('e');
+            game.makeGuess('s');
+            expect(game.calculateStatus).toBe(false);
         });
     });
 });
