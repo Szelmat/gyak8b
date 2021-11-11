@@ -6,4 +6,14 @@ export class Hangman {
         this.guessedLetters = [];
         this.status = 'playing';
     }
+
+    get puzzle() {
+        let result = '';
+
+        this.wordToGuess.forEach(letter => {
+            result += '_ '
+        });
+
+        return result;
+    }
 }
