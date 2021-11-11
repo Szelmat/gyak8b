@@ -45,6 +45,7 @@ describe('Tests for Hangman', () => {
     describe('test for makeGuess()', () => {
         test('guessing for game', () => {
             expect(game.makeGuess('e')).toBe(true);
+            expect(game.guessedLetters).toEqual(expect.arrayContaining(['e']));
             expect(game.makeGuess('a')).toBe(false);
             expect(game.makeGuess('e')).toBe(false);
         });

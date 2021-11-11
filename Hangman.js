@@ -22,6 +22,11 @@ export class Hangman {
     }
 
     makeGuess(guess) {
-        return this.wordToGuess.includes(guess)
+        const isUnique = !this.guessedLetters.includes(guess);
+        const isCorrect = this.wordToGuess.includes(guess);
+        if(isUnique)
+            this.guessedLetters.push(guess);
+
+        return (isUnique && isCorrect);
     }
 }
