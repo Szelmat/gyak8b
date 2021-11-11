@@ -67,5 +67,15 @@ describe('Tests for Hangman', () => {
             game.makeGuess('s');
             expect(game.calculateStatus()).toBe(false);
         });
+
+        test('test for incorrect guesses', () => {
+            expect(game.calculateStatus()).toBe(true);
+            game.makeGuess('a');
+            game.makeGuess('b');
+            game.makeGuess('c');
+            game.makeGuess('d');
+            expect(game.calculateStatus()).toBe(false);
+            expect(game.status).toBe('lost');
+        });
     });
 });
