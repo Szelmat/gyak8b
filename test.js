@@ -65,7 +65,7 @@ describe('Tests for Hangman', () => {
             game.makeGuess('t');
             game.makeGuess('e');
             game.makeGuess('s');
-            expect(game.calculateStatus).toBe(false);
+            expect(game.calculateStatus()).toBe(false);
         });
     });
 });

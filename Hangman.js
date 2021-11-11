@@ -40,6 +40,6 @@ export class Hangman {
     }
 
     calculateStatus() {
-        return true;
+        return !this.wordToGuess.every(letter => this.guessedLetters.includes(letter));
     }
 }
