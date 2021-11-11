@@ -41,8 +41,15 @@ export class Hangman {
 
     calculateStatus() {
         if(this.remainingGuesses <= 0) {
+            this.status = 'lost';
             return false;
         }
-        return !this.wordToGuess.every(letter => this.guessedLetters.includes(letter));
+
+        if(this.wordToGuess.every(letter => this.guessedLetters.includes(letter))) {
+            this.status = 'won';
+            return false;
+        } else {
+            return true;
+        }
     }
 }
