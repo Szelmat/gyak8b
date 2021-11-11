@@ -53,6 +53,15 @@ describe('Tests for Hangman', () => {
 
             expect(game.makeGuess('e')).toBe(false);
             expect(game.guessedLetters).toStrictEqual(['e', 'a']);
+
+            expect(game.makeGuess('S')).toBe(true);
+            expect(game.guessedLetters).toEqual(expect.arrayContaining(['s']));
+        });
+    });
+
+    describe('test for calculeStatus()', () => {
+        test('calculating status for game', () => {
+            expect(game.calculateStatus()).toBe(true);
         });
     });
 });

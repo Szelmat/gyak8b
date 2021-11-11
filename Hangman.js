@@ -22,6 +22,7 @@ export class Hangman {
     }
 
     makeGuess(guess) {
+        guess = guess.toLowerCase();
         const isUnique = !this.guessedLetters.includes(guess);
         const isCorrect = this.wordToGuess.includes(guess);
         if(isUnique) {
@@ -36,5 +37,9 @@ export class Hangman {
         } else {
             return false;
         }
+    }
+
+    calculateStatus() {
+        return true;
     }
 }
