@@ -11,7 +11,11 @@ export class Hangman {
         let result = '';
 
         this.wordToGuess.forEach(letter => {
-            result += '_ '
+            if(this.guessedLetters.includes(letter)) {
+                result += letter + ' ';
+            } else {
+                result += '_ ';
+            }
         });
 
         return result;

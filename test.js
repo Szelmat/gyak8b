@@ -26,12 +26,18 @@ describe('Tests for Hangman', () => {
     });
 
     describe('test for puzzle()', () => {
-        test('empty remainingGuesses array gives _ _ _ _', () => {
+        test('tests for puzzle in game', () => {
             expect(game.puzzle).toBe('_ _ _ _ ');
+            game.guessedLetters.push('s');
+            expect(game.puzzle).toBe('_ _ s _ ');
+            game.guessedLetters.push('t');
+            expect(game.puzzle).toBe('t _ s t ')
         });
 
-        test('empty remainingGuess array for game2 gives _ _ _ _ _', () => {
+        test('test for puzzle in game2', () => {
             expect(game2.puzzle).toBe('_ _ _ _ _ ');
+            game2.guessedLetters.push('t');
+            expect(game2.puzzle).toBe('t _ _ _ _ ');
         })
     });
 });
