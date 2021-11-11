@@ -20,4 +20,8 @@ export class Hangman {
 
         return result;
     }
+
+    makeGuess(guess) {
+        return this.wordToGuess.includes(guess)
+    }
 }

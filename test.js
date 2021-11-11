@@ -40,4 +40,13 @@ describe('Tests for Hangman', () => {
             expect(game2.puzzle).toBe('t _ _ _ _ ');
         })
     });
+
+
+    describe('test for makeGuess()', () => {
+        test('guessing for game', () => {
+            expect(game.makeGuess('e')).toBe(true);
+            expect(game.makeGuess('a')).toBe(false);
+            expect(game.makeGuess('e')).toBe(false);
+        });
+    });
 });
