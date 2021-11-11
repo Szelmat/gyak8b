@@ -24,9 +24,17 @@ export class Hangman {
     makeGuess(guess) {
         const isUnique = !this.guessedLetters.includes(guess);
         const isCorrect = this.wordToGuess.includes(guess);
-        if(isUnique)
+        if(isUnique) {
             this.guessedLetters.push(guess);
 
-        return (isUnique && isCorrect);
+            if(isCorrect) {
+                return true
+            } else {
+                this.remainingGuesses--;
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }
