@@ -45,16 +45,19 @@ function getRemainingGuesses() {
 }
 
 function checkState() {
-    let result = document.getElementById('#result');
+    let result = document.querySelector('#result');
 
     if(game.status === 'won') {
         result.innerHTML = "Gratulálunk, nyertél!";
+        for(let i = 0; i < 26; i++) {
+            let ch = String.fromCharCode(97 + i);
+            document.querySelector('#' + ch).disabled = true;
+        }
     } else if(game.status === 'lost') {
         result.innerHTML = "Sajnáljuk, vesztettél.";
-    }
-
-    for(let i = 0; i < 26; i++) {
-        let ch = String.fromCharCode(97 + i);
-        document.querySelector('#' + ch).disabled = true;
+        for(let i = 0; i < 26; i++) {
+            let ch = String.fromCharCode(97 + i);
+            document.querySelector('#' + ch).disabled = true;
+        }
     }
 }
