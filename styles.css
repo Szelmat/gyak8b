@@ -1,0 +1,22 @@
+html {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+button {
+    min-width: 30px;
+    min-height: 30px;
+    margin: 5px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+#result {
+    color: purple;
+}
