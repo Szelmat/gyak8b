@@ -10,4 +10,9 @@ async function start() {
 
     console.log(word);
     document.querySelector('#word').innerHTML = game.puzzle;
+
+    for(let i = 0; i < 26; i++) {
+        let ch = String.fromCharCode(97 + i);
+        console.log(ch);
+    }
 }
