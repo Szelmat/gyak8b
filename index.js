@@ -12,7 +12,7 @@ async function start() {
     console.log(word);
 
     getPuzzle();
-
+    getRemainingGuesses();
     generateButtons();
 }
 
@@ -28,6 +28,8 @@ function generateButtons() {
         element.addEventListener('click', () => {
             game.makeGuess(ch);
             getPuzzle();
+            document.querySelector('#' + ch).disabled = true;
+            getRemainingGuesses();
         })
         div.appendChild(element);
     }
@@ -35,4 +37,8 @@ function generateButtons() {
 
 function getPuzzle() {
     document.querySelector('#word').innerHTML = game.puzzle;
+}
+
+function getRemainingGuesses() {
+    document.querySelector('#remaining').innerHTML = "Hátralévő hibás tippek: " + game.reaminingGuesses;
 }

@@ -7,6 +7,10 @@ export class Hangman {
         this.status = 'playing';
     }
 
+    get remainingGuesses() {
+        return this.remainingGuesses;
+    }
+
     get puzzle() {
         let result = '';
 
