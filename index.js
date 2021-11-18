@@ -2,14 +2,17 @@ import { RandomWord } from './RandomWord.js';
 import { Hangman } from './Hangman.js';
 
 document.querySelector('#start').addEventListener('click', start);
+let game;
 
 async function start() {
     let rndWord = new RandomWord;
     let word = await rndWord.randomWord()
-    let game = new Hangman(word, word.length);
+    game = new Hangman(word, word.length);
 
     console.log(word);
-    document.querySelector('#word').innerHTML = game.puzzle;
+
+    getPuzzle();
+
     generateButtons();
 }
 
@@ -22,7 +25,14 @@ function generateButtons() {
         let element = document.createElement('BUTTON');
         element.textContent = ch;
         element.setAttribute('id', ch)
-        element.addEventListener('click', () => console.log(ch));
+        element.addEventListener('click', () => {
+            game.makeGuess(ch);
+            getPuzzle();
+        })
         div.appendChild(element);
     }
+}
+
+function getPuzzle() {
+    document.querySelector('#word').innerHTML = game.puzzle;
 }
