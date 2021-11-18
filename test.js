@@ -1,4 +1,5 @@
 import { Hangman } from './Hangman';
+import { RandomWord } from './RandomWord';
 
 
 describe('Tests for Hangman', () => {
@@ -80,4 +81,16 @@ describe('Tests for Hangman', () => {
             expect(game.status).toBe('lost');
         });
     });
+
+    describe('Tests for the randomword class', () => {
+        let rndWord;
+        beforeAll(() => {
+            rndWord = new RandomWord();
+        });
+
+        test('the returned word is longer than 0', () => {
+            let word = await rndWord.randomWord();
+            expect(word.length).toGreaterThan(0);
+        });
+    })
 });
