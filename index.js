@@ -30,6 +30,7 @@ function generateButtons() {
             getPuzzle();
             document.querySelector('#' + ch).disabled = true;
             getRemainingGuesses();
+            checkState();
         })
         div.appendChild(element);
     }
@@ -40,5 +41,20 @@ function getPuzzle() {
 }
 
 function getRemainingGuesses() {
-    document.querySelector('#remaining').innerHTML = "Hátralévő hibás tippek: " + game.reaminingGuesses;
+    document.querySelector('#remaining').innerHTML = "Hátralévő hibás tippek: " + game.remainingGuesses;
+}
+
+function checkState() {
+    let result = document.getElementById('#result');
+
+    if(game.status === 'won') {
+        result.innerHTML = "Gratulálunk, nyertél!";
+    } else if(game.status === 'lost') {
+        result.innerHTML = "Sajnáljuk, vesztettél.";
+    }
+
+    for(let i = 0; i < 26; i++) {
+        let ch = String.fromCharCode(97 + i);
+        document.querySelector('#' + ch).disabled = true;
+    }
 }

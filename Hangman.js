@@ -7,10 +7,6 @@ export class Hangman {
         this.status = 'playing';
     }
 
-    get remainingGuesses() {
-        return this.remainingGuesses;
-    }
-
     get puzzle() {
         let result = '';
 
@@ -33,12 +29,15 @@ export class Hangman {
             this.guessedLetters.push(guess);
 
             if(isCorrect) {
+                this.calculateStatus();
                 return true
             } else {
                 this.remainingGuesses--;
+                this.calculateStatus();
                 return false;
             }
         } else {
+            this.calculateStatus();
             return false;
         }
     }
