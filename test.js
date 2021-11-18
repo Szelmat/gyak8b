@@ -89,8 +89,9 @@ describe('Tests for Hangman', () => {
         });
 
         test('the returned word is longer than 0', () => {
-            let word = await rndWord.randomWord();
-            expect(word.length).toGreaterThan(0);
+            return rndWord.randomWord().then(result => {
+                expect(result.data[0].length).toBeGreaterThan(0);
+            })
         });
     })
 });
