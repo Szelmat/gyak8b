@@ -11,6 +11,7 @@ async function start() {
 
     console.log(word);
 
+    document.querySelector('#result').innerHTML = '';
     getPuzzle();
     getRemainingGuesses();
     generateButtons();

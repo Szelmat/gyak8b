@@ -4,17 +4,24 @@ html {
 }
 
 button {
-    min-width: 30px;
-    min-height: 30px;
+    min-width: 40px;
+    min-height: 40px;
     margin: 5px;
     background-color: blue;
     color: white;
     cursor: pointer;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-transform: uppercase;
 }
 
 button:disabled {
     background-color: grey;
     cursor: not-allowed;
+}
+
+#word {
+    text-transform: uppercase;
 }
 
 #result {
